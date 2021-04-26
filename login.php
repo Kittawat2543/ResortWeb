@@ -18,40 +18,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="assets/style.css">
     <style>
-        body {
-            background: url("https://images.unsplash.com/photo-1573002922402-c8f094eebf16?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80") no-repeat center center;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
+    body {
+        background: url("https://images.unsplash.com/photo-1494029466100-e03349a90658?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80") no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .touch {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .touch .card {
+        border: none;
+        border-radius: 3rem;
+    }
+
+    @media (min-width: 992px) {
+        .touch .card:hover {
+            margin-top: -.25rem;
+            margin-bottom: .25rem;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+            transition: .2s;
         }
 
-        .touch {
-            margin-top: 25px;
-            margin-bottom: 25px;
-        }
-
-        .touch .card {
-            border: none;
-            border-radius: 3rem;
-        }
-
-        @media (min-width: 992px) {
-            .touch .card:hover {
-                margin-top: -.25rem;
-                margin-bottom: .25rem;
-                box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-                transition: .2s;
-            }
-
-        }
+    }
     </style>
 </head>
 
 <body>
 
     <!--Main layout-->
-    <div class="container mb-5 mt-5 touch">
+    <div class="container mb-5 mt-5  touch">
         <div class="card">
             <h5 class="card-header white-text text-center py-4" style="background-color: #003559;">
                 <strong>Sign in</strong>
@@ -69,9 +69,6 @@
                     </div>
                     <button class="btn btn-outline-primary btn-rounded my-4 waves-effect z-depth-0" type="submit"
                         name="submit" id="submit">Login</button>
-                    <p>Don't have an account yet?
-                        <a href="register.php">Register</a>
-                    </p>
                 </form>
 
             </div>
@@ -86,9 +83,8 @@
 
         <div class="footer-copyright text-center py-3 wow fadeIn" data-wow-delay="0.3s">
             <div class="container-fluid">
-                &copy; 2020 Copyright: <a href=""> </a>
+                &copy; Copyright
             </div>
-        </div>
 
     </footer>
 

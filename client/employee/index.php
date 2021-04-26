@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Management</title>
+    <title>Employee Management</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -24,17 +24,18 @@
 
 </head>
 <style>
-    hr {
-        border: 0;
-        height: 1px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    }
-    .top-up {
-        height: 50px;
-        overflow: hidden;
-        border-top-left-radius: .25rem;
-        border-top-right-radius: .25rem;
-    }
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.top-up {
+    height: 50px;
+    overflow: hidden;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
 </style>
 
 <body class="fixed-sn cyan-skin">
@@ -45,10 +46,10 @@
     <main>
         <div class="container-fluid mb-5">
             <div class="card text-left">
-              <div class="card-body">
-                <p>Hello</p>
+                <div class="card-body">
+                    <p>Hello</p>
 
-              </div>
+                </div>
             </div>
         </div>
     </main>

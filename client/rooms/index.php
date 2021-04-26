@@ -29,7 +29,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipt</title>
+    <title>Booking Room</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -39,31 +39,31 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.css" />
 
-    
+
     <style>
-        table.dataTable thead .sorting:after,
-        table.dataTable thead .sorting:before,
-        table.dataTable thead .sorting_asc:after,
-        table.dataTable thead .sorting_asc:before,
-        table.dataTable thead .sorting_asc_disabled:after,
-        table.dataTable thead .sorting_asc_disabled:before,
-        table.dataTable thead .sorting_desc:after,
-        table.dataTable thead .sorting_desc:before,
-        table.dataTable thead .sorting_desc_disabled:after,
-        table.dataTable thead .sorting_desc_disabled:before {
-            bottom: .5em;
-        }
+    table.dataTable thead .sorting:after,
+    table.dataTable thead .sorting:before,
+    table.dataTable thead .sorting_asc:after,
+    table.dataTable thead .sorting_asc:before,
+    table.dataTable thead .sorting_asc_disabled:after,
+    table.dataTable thead .sorting_asc_disabled:before,
+    table.dataTable thead .sorting_desc:after,
+    table.dataTable thead .sorting_desc:before,
+    table.dataTable thead .sorting_desc_disabled:after,
+    table.dataTable thead .sorting_desc_disabled:before {
+        bottom: .5em;
+    }
 
-        .dataTables_filter,
-        .pagination {
-            float: right;
-        }
+    .dataTables_filter,
+    .pagination {
+        float: right;
+    }
 
-        .dataTables_empty,
-        th,
-        td {
-            text-align: center;
-        }
+    .dataTables_empty,
+    th,
+    td {
+        text-align: center;
+    }
     </style>
 </head>
 
@@ -73,12 +73,12 @@
     <?php require_once('../include/sidebar.php'); ?>
     <!--Main layout-->
     <main>
-        <div class="container-fluid mb-5">
+        <div class="container-fluid mb-5 ">
             <div class="card text-left">
-              <div class="card-body">
-                <p>Hello</p>
+                <div class="card-body">
+                    <p>Hello</p>
 
-              </div>
+                </div>
             </div>
         </div>
     </main>
@@ -96,26 +96,27 @@
     <script src="../../node_modules/mdbootstrap/js/addons/datatables.min.js"></script>
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
     <script src="../assets/js/sidebar.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.js">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script src="js/allJs.js"></script>
     <script src="../../assets/js/block-console.js"></script>
-    
+
     <script>
-        $('#dataTable').DataTable({
-            "order": [0, 'asc'],
-            "language": [{
-                "emptyTable": `<div class="col-md-12 mt-5">
+    $('#dataTable').DataTable({
+        "order": [0, 'asc'],
+        "language": [{
+            "emptyTable": `<div class="col-md-12 mt-5">
             <center style="opacity: 0.5;">
             <i class="fad fa-file-times" style="font-size: 100px; color:red;"></i>
             <p class="text-center">ไม่มีข้อมูลใบเสร็จ</p>
             </center>
         </div>`
-            }],
-        });
+        }],
+    });
 
-        $.fn.dataTable.ext.classes.sPageButton = 'button primary_button';
+    $.fn.dataTable.ext.classes.sPageButton = 'button primary_button';
     </script>
 
 </body>

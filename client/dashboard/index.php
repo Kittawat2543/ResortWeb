@@ -46,7 +46,7 @@
         <div class="container-fluid mb-5">
             <div class="card text-left">
                 <div class="card-body">
-                    <h1>ห้องพัก</h1>
+                    <h2>ห้องพัก</h2>
                     <table class="table table-bordered">
                         <tr>
                             <th>รหัสห้อง</th>
