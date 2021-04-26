@@ -82,25 +82,77 @@
     <!--Main layout-->
     <main>
         <div class="container-fluid mb-5">
-            <div class="card text-left">
-                <div class="card-body">
+            <p style="font-size:35px;">Room Booking</p>
 
-                    <p style="font-size:35px;">Room</p>
+            <!-- Card Narrower -->
+                    <div class="card card-cascade narrower">
+                    
+                    <!-- Card content -->
+                        <div class="card-body card-body-cascade">
 
-                    <div class="bord">
-                        <h2>room1</h2>
-                        <p>London is the capital of England.</p>
+                            <!-- Title -->
+                            <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
+                            <!-- Text -->
+                            <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi.</p>
+                            <!-- Button -->
+                            <a class="btn btn-blue">Booking</a>
+
+                        </div>
+                    </div>
+                    <div class="card card-cascade narrower">
+                    
+                    <!-- Card content -->
+                        <div class="card-body card-body-cascade">
+
+                            <!-- Title -->
+                            <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
+                            <!-- Text -->
+                            <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi.</p>
+                            <!-- Button -->
+                            <a class="btn btn-blue">Booking</a>
+
+                        </div>
                     </div>
 
-                    <div class="bord">
-                        <h2>room2</h2>
-                        <p>Paris is the capital of France.</p>
+                    <div class="card card-cascade narrower">
+                    
+                    <!-- Card content -->
+                        <div class="card-body card-body-cascade">
+
+                            <!-- Title -->
+                            <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
+                            <!-- Text -->
+                            <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi.</p>
+                            <!-- Button -->
+                            <a class="btn btn-blue">Booking</a>
+
+                        </div>
                     </div>
 
-                    <div class="bord">
-                        <h2>room3</h2>
-                        <p>Tokyo is the capital of Japan.</p>
+
+                    <div class="card card-cascade narrower">
+                    
+                    <!-- Card content -->
+                        <div class="card-body card-body-cascade">
+
+                            <!-- Title -->
+                            <h4 class="font-weight-bold card-title">Cheat day inspirations</h4>
+                            <!-- Text -->
+                            <p class="card-text">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi.</p>
+                            <!-- Button -->
+                            <a class="btn btn-blue">Booking</a>
+
+                        </div>
                     </div>
+
+
+
+        </div>
+    </main>
 
                 </div>
 
