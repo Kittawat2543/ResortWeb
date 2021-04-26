@@ -56,13 +56,7 @@
             }
         }
 
-        table,tr,td,th {
-            border: 1px solid darkgrey;
-            border-collapse: collapse;
-            padding: 20px;
-            width: 50%;    
-            background-color: white;
-    }
+  
     </style>
 </head>
 
@@ -76,51 +70,76 @@
             <div class="card text-left">
               <div class="card-body">
 
-                <p style="font-size:35px;">ใบเสร็จของเเต่ละห้อง</p>
+                <p style="font-size:40px ; text-align:center">ใบเสร็จของเเต่ละห้อง</p>
                 
-                <table >
-                    <tr>
-                        <th>ID_Room</th>
-                        <th>NameOfGuest</th> 
-                        <th>Room</th>
-                        <th>Trasaction_Date</th>
-                        <th>Status</th>
-                        <th>Payment</th>
-                    </tr>
-                    <tr>
-                        <td>Jill</td>
-                        <td>Smith</td>
-                        <td>50</td>
-                        <td>50</td>
-                        <td>50</td>
-                        <td><button type="button" class="btn btn-warning">ชำระเงิน</button></td>
-                    </tr>
-                    <tr>
-                        <td>Eve</td>
-                        <td>Jackson</td>
-                        <td>94</td>
-                        <td>50</td>
-                        <td>50</td>
-                        <td><button type="button" class="btn btn-warning">ชำระเงิน</button></td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>80</td>
-                        <td>50</td>
-                        <td>50</td>
-                        <td><button type="button" class="btn btn-warning">ชำระเงิน</button></td>
-                    </tr>
-                </table>
+               <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID_Room</th>
+                            <th scope="col">NameOfGuest</th>
+                            <th scope="col">Room</th>
+                            <th scope="col">Transaction Date</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Payment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                                <td>Sit</td>
+                                <td>Amet</td>
+                                <td>Amet</td>
+                                <td>Amet</td>
+                                
+                                <td>
+                                    <button type="button" class="btn btn-warning btn-rounded">
+                                    <i>ชำระเงิน</i>
+                                    </button>
 
-                <br>
+                                </td>
 
-                <button type="button" class="btn btn-danger">Edit</button>
-                <button type="button" class="btn btn-success">Save</button>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                                <td>Adipisicing</td>
+                                <td>Elit</td>
+                                <td>Elit</td>
+                                <td>Elit</td>
+
+                                <td>
+                                    <button type="button" class="btn btn-warning btn-rounded">
+                                    <i>ชำระเงิน</i>
+                                    </button>
+                                </td>
+                       
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                                <td>Hic</td>
+                                <td>Fugiat</td>
+                                <td>Fugiat</td>
+                                <td>Fugiat</td>
+
+                                <td>
+                                    <button type="button" class="btn btn-warning btn-rounded">
+                                    <i>ชำระเงิน</i>
+                                    </button>
+                                </td>
+
+                        </tr>
+                    </tbody>
+
+                    </table>
+
+
+                    <button type="button" class="btn btn-danger btn-rounded">Edit</button>
+                    <button type="button" class="btn btn-success btn-rounded">Save</button>
 
               </div>
             </div>
         </div>
+
+
     </main>
     <!--/Main layout-->
 
@@ -140,6 +159,12 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="js/allJs.js"></script>
     <script src="../../assets/js/block-console.js"></script>
+    
+    <script>$('#dtBasicExample').mdbEditor({
+            mdbEditor: true
+            });
+            $('.dataTables_length').addClass('bs-select');
+    </script>
 
 </body>
 
