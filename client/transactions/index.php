@@ -2,12 +2,11 @@
  include_once('../../connect.php');
  require_once('../authen.php');
 
- $employeeID = $_SESSION['employeeID'];
 
-  include_once('../../connect.php');
- require_once('../authen.php');
+include_once('../../connect.php');
+require_once('../authen.php');
 
- $sql = "SELECT * FROM Room WHERE status = 0";
+ $sql = "SELECT * FROM `Transactions` WHERE `status` = 0";
  $result = mysqli_query($conn,$sql);
 
 
@@ -72,50 +71,63 @@
     <!--Main layout-->
     <main>
         <div class="container-fluid mb-5">
-            <p style="font-size:35px;">Room Booking</p>
+            <p style="font-size:35px;">Transaction</p>
             <div class="row">
                 <?php while ($data = mysqli_fetch_array($result)) {
                     
                 ?>
-                <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4">
-                    <!-- Card Narrower -->
-                    <div class="card card-cascade narrower">
-                    
-                    <!-- Card content -->
-                        <div class="card-body card-body-cascade">
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Tel guest</th>
+                                <th scope="col">RoomID</th>
+                                <th scope="col">Date checkIN</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                            <!-- Title -->
-                            <h4 class="font-weight-bold card-title"><?php echo $data['roomID']?></h4>
-                            <!-- Text -->
-                            <p class="card-text">ประเภทของห้อง : <?php echo $data['roomType']?></p>
-                            <p class="card-text">จำนวนคนเข้าพัก : <?php echo $data['person']?></p>
-
-                            <!-- Button -->
-                            <a class="btn btn-blue" href="/client/rooms/booking.php?id=<?php echo $data['roomID']?>">จองห้อง</a>
-
-                        </div>
-                    </div>
-                </div>
-                <?php }?>
-
-                
-
-            
-
-            
-            </div>
-            
-                
-
-
-
-                    </div>
-                </main>
-
+                            </tr>
+                            <?php while ($data = mysqli_fetch_array($result)) {
+                                    ?>
+                            <tr>
+                                <td><?php echo $data['transactionID']; ?></td>
+                                <td><?php echo $data['telGuest']; ?></td>
+                                <td><?php echo $data['roomID']; ?></td>
+                                <td><?php echo $data['check_in']; ?></td>
+                                <!-- <td><?php echo $data['status'] == 0 ? 'ว่าง' : 'ไม่ว่าง'; ?></td> -->
+                                <td> <a href="view.php?id=<?php echo $data['transactionID']?>" type="button"
+                                        class="btn btn-success btn-sm px-3">
+                                        View
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php }?>
+                        </tbody>
+                    </table>
+                    <?php }?>
                 </div>
 
+
+
+
+
+
             </div>
+
+
+
+
+
         </div>
+    </main>
+
+    </div>
+
+    </div>
+    </div>
     </main>
     <!--/Main layout-->
 

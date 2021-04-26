@@ -34,7 +34,7 @@
                             <ul class="list-unstyled">
                                 <li><a href="../bill/index.php" class="waves-effect">Bill</a>
                                 </li>
-                                <li><a href="#" class="waves-effect">???</a>
+                                <li><a href="../transactions/" class="waves-effect">Tracsaction</a>
                                 </li>
                             </ul>
                         </div>

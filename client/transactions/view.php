@@ -2,12 +2,11 @@
  include_once('../../connect.php');
  require_once('../authen.php');
 
- $employeeID = $_SESSION['employeeID'];
 
-  include_once('../../connect.php');
- require_once('../authen.php');
+include_once('../../connect.php');
+require_once('../authen.php');
 
- $sql = "SELECT * FROM Room WHERE status = 0";
+ $sql = "SELECT * FROM `Transactions` WHERE `status` = 0";
  $result = mysqli_query($conn,$sql);
 
 
@@ -72,51 +71,23 @@
     <!--Main layout-->
     <main>
         <div class="container-fluid mb-5">
-            <p style="font-size:35px;">Room Booking</p>
+            <p style="font-size:35px;">View Transaction</p>
             <div class="row">
-                <?php while ($data = mysqli_fetch_array($result)) {
-                    
-                ?>
-                <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4">
-                    <!-- Card Narrower -->
-                    <div class="card card-cascade narrower">
-                    
-                    <!-- Card content -->
-                        <div class="card-body card-body-cascade">
-
-                            <!-- Title -->
-                            <h4 class="font-weight-bold card-title"><?php echo $data['roomID']?></h4>
-                            <!-- Text -->
-                            <p class="card-text">ประเภทของห้อง : <?php echo $data['roomType']?></p>
-                            <p class="card-text">จำนวนคนเข้าพัก : <?php echo $data['person']?></p>
-
-                            <!-- Button -->
-                            <a class="btn btn-blue" href="/client/rooms/booking.php?id=<?php echo $data['roomID']?>">จองห้อง</a>
-
+                <div class="touch">
+                    <div class="card">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt numquam, reiciendis vel ullam
+                            autem sapiente alias eveniet veritatis molestias incidunt omnis, maiores praesentium minus
+                            tempora, excepturi debitis quibusdam officiis aspernatur?
                         </div>
                     </div>
                 </div>
-                <?php }?>
-
-                
-
-            
-
-            
             </div>
-            
-                
 
-
-
-                    </div>
-                </main>
-
-                </div>
-
-            </div>
         </div>
+
     </main>
+
     <!--/Main layout-->
 
     <!-- Footer -->
@@ -138,21 +109,6 @@
     <script src="js/allJs.js"></script>
     <script src="../../assets/js/block-console.js"></script>
 
-    <script>
-    $('#dataTable').DataTable({
-        "order": [0, 'asc'],
-        "language": [{
-            "emptyTable": `<div class="col-md-12 mt-5">
-            <center style="opacity: 0.5;">
-            <i class="fad fa-file-times" style="font-size: 100px; color:red;"></i>
-            <p class="text-center">ไม่มีข้อมูลใบเสร็จ</p>
-            </center>
-        </div>`
-        }],
-    });
-
-    $.fn.dataTable.ext.classes.sPageButton = 'button primary_button';
-    </script>
 
 </body>
 
