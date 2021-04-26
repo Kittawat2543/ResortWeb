@@ -6,7 +6,7 @@ $(document).ready(function () {
         // console.log(form_data);
         $.ajax({
             type: 'POST',
-            url: 'assets/php/register.php',
+            url: 'php/register.php',
             data: form_data,
             dataType: 'json',
             success: function (data) {
@@ -15,20 +15,16 @@ $(document).ready(function () {
                         'Success!',
                         data.message,
                         'success'
-                      ).then(function() {
-                        window.location.href = 'login.php';
-                        });
+                    )
                 } else {
                     Swal.fire(
                         'Warning!',
                         data.message,
                         'warning'
-                      ).then(function() {
-                        window.location.href = 'register.php';
-                        });
+                    )
                 }
             }
-        
+
         });
     });
 });

@@ -37,6 +37,8 @@
                             <ul class="list-unstyled">
                                 <li><a href="../employee/index.php" class="waves-effect">Employee</a>
                                 </li>
+                                <li><a href="../employee/add.php" class="waves-effect">Add Employee</a>
+                                </li>
                             </ul>
                         </div>
                     </li>

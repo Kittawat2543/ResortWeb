@@ -1,5 +1,5 @@
 <?php 
-    require_once('../../connect.php');
+    include_once('../../../connect.php');
 
 
     header("Content-type: application/json; charset=utf-8"); 
@@ -9,7 +9,7 @@
         $password = $_POST['password'];
         $tel = $_POST['tel'];
         $DOB = $_POST['DOB'];
-        $salary = $_POST['salary'];
+        $salary = floatval($_POST['salary']);
         $gender = $_POST['gender'];
         $job_position = $_POST['job_position'];
         
