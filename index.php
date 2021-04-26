@@ -18,39 +18,39 @@ error_reporting(0);
 </head>
 
 <style>
-    .card {
-        position: relative;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        min-width: 0;
-        word-wrap: break-word;
-        background-color: #fff;
-        background-clip: border-box;
-        border: 1px solid rgba(0, 0, 0, .125);
-        border-radius: .25rem;
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+
+.touch {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.touch .card {
+    border: none;
+    border-radius: 3rem;
+}
+
+@media (min-width: 992px) {
+    .touch .card:hover {
+        margin-top: -.25rem;
+        margin-bottom: .25rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+        transition: .2s;
     }
 
-    .touch {
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-
-    .touch .card {
-        border: none;
-        border-radius: 3rem;
-    }
-
-    @media (min-width: 992px) {
-        .touch .card:hover {
-            margin-top: -.25rem;
-            margin-bottom: .25rem;
-            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-            transition: .2s;
-        }
-
-    }
+}
 </style>
 
 <body>
@@ -90,21 +90,19 @@ error_reporting(0);
                 <div class="row flex-center pt-5 mt-3">
                     <div class="col-md-6 text-center text-md-left margins">
                         <div class="white-text">
-                            <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">FN Resort Management</h1>
+                            <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">Resort
+                                Management กกกก</h1>
                             <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
                             <h6 class="wow fadeInLeft" data-wow-delay="0.3s">ระบบจัดการรีสอร์ท</h6>
                             <br>
                             <a class="btn btn-light-green wow fadeInLeft" data-wow-delay="0.3s"
                                 href="login.php">Login</a>
-                            <a class="btn btn-amber wow fadeInLeft" data-wow-delay="0.3s" href="register.php">Register
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </a>
+
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-5 wow fadeInRight d-flex justify-content-center" data-wow-delay="0.3s">
-                        <img src="assets/pic/lukky.png" alt=""
-                            class="img-responsive" style="width: 500px;">
+                        <img src="assets/pic/lukky.png" alt="" class="img-responsive" style="width: 500px;">
                     </div>
                 </div>
             </div>
@@ -116,7 +114,7 @@ error_reporting(0);
 
     <main>
 
-       
+
 
         <section class="my-5 wow fadeIn" data-wow-delay="0.3s">
 
@@ -124,7 +122,7 @@ error_reporting(0);
 
             <p class="text-center w-responsive mx-auto grey-text">นิสิตสาขาวิทยาการคอมพิวเตอร์ คณะวิทยาศาตร์
                 มหาวิทยาลัยศรีนครินทรวิโรฒ </p>
-            
+
             <div class="container-fulid ml-3 mr-3">
                 <div class="row">
 
@@ -135,8 +133,8 @@ error_reporting(0);
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="zoom">
-                                                <img src="assets/pic/folk.jpg" 
-                                                class="img-fluid z-depth-1 rounded-circle" alt="zoom">
+                                                <img src="assets/pic/folk.jpg"
+                                                    class="img-fluid z-depth-1 rounded-circle" alt="zoom">
                                                 <div class="mask flex-center waves-effect waves-light">
                                                 </div>
                                             </div>
@@ -153,7 +151,7 @@ error_reporting(0);
                         </div>
                     </div>
 
-                  
+
 
 
 
@@ -202,7 +200,7 @@ error_reporting(0);
 
         <div class="footer-copyright text-center py-3 wow fadeIn" data-wow-delay="0.3s">
             <div class="container-fluid">
-                &copy; 2020 Copyright: <a href=""> MON studio </a>
+                &copy; Copyright
             </div>
         </div>
 
