@@ -121,17 +121,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            <!-- <tr>
-                                <th scope="row">1</th>
-                                <td>studio</td>
-                                <td>1</td>
-                                <td>500</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm px-3">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </td>
+                        
                             </tr> -->
                             <?php while ($data = mysqli_fetch_array($result)) {
                                     ?>

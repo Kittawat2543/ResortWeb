@@ -2,7 +2,10 @@
  include_once('../../connect.php');
  require_once('../authen.php');
 
- $employeeID = $_SESSION['employeeID'];
+if (!$_GET['id']){
+    header( "location: /" );
+    exit(0);
+}
 
   include_once('../../connect.php');
  require_once('../authen.php');
@@ -73,39 +76,37 @@
     <main>
         <div class="container-fluid mb-5">
             <p style="font-size:35px;">Room Booking</p>
-            <div class="row">
-                <?php while ($data = mysqli_fetch_array($result)) {
-                    
-                ?>
-                <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4">
-                    <!-- Card Narrower -->
-                    <div class="card card-cascade narrower">
-                    
-                    <!-- Card content -->
-                        <div class="card-body card-body-cascade">
 
-                            <!-- Title -->
-                            <h4 class="font-weight-bold card-title"><?php echo $data['roomID']?></h4>
-                            <!-- Text -->
-                            <p class="card-text">ประเภทของห้อง : <?php echo $data['roomType']?></p>
-                            <p class="card-text">จำนวนคนเข้าพัก : <?php echo $data['person']?></p>
+                                
+                <div class="touch">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>รายละเอียดการจอง</p>
+                            <!-- Form -->
+                                <form id="form" class="text-center" style="color: #757575;">
 
-                            <!-- Button -->
-                            <a class="btn btn-blue" href="/ResortWeb/client/rooms/booking.php?id=<?php echo $data['roomID']?>">จองห้อง</a>
+                                <!-- Email -->
+                                <div class="md-form">
+                                    <input type="text" id="room_id" name="room_id" class="form-control" value="<?php echo $_GET['id'];?>">
+                                    <label for="room_id">เบอร์ห้อง</label>
+                                </div>
 
+                                <!-- Password -->
+                                <div class="md-form">
+                                    <input type="text" id="tel" name="tel" id="materialLoginFormPassword" class="form-control">
+                                    <label for="tel">เบอร์โทรศัพท์ผู้จอง</label>
+                                </div>
+
+            
+
+                                <!-- Sign in button -->
+                                    <button type="submit" class="btn btn-deep-orange">Submit</button>
+
+                                </form>
+                                <!-- Form -->
                         </div>
                     </div>
                 </div>
-                <?php }?>
-
-                
-
-            
-
-            
-            </div>
-            
-                
 
 
 
@@ -137,23 +138,37 @@
 
     <script src="js/allJs.js"></script>
     <script src="../../assets/js/block-console.js"></script>
+    
+     <script>
+    $(document).ready(function(){
 
-    <script>
-    $('#dataTable').DataTable({
-        "order": [0, 'asc'],
-        "language": [{
-            "emptyTable": `<div class="col-md-12 mt-5">
-            <center style="opacity: 0.5;">
-            <i class="fad fa-file-times" style="font-size: 100px; color:red;"></i>
-            <p class="text-center">ไม่มีข้อมูลใบเสร็จ</p>
-            </center>
-        </div>`
-        }],
-    });
+        $("#form").submit(function (evennt){
+            event.preventDefault();
 
-    $.fn.dataTable.ext.classes.sPageButton = 'button primary_button';
+            var data = $(this).serialize();
+            console.log(data)
+
+            $.ajax({
+                type:'POST',
+                url:'php/createTransaction.php',
+                data:data,
+                dataType:'JSON',
+                success:function (data){
+                    
+                    if(data.status){
+                        Swal.fire('Success!',data.message,'success').then(()=>{
+                            window.location.href = 'index.php';
+                        })
+                    }else{
+                        Swal.fire('Fail!',data.message,'error').then(()=>{
+                             window.location.href = 'index.php';
+                        })
+                    }
+                }
+            })
+        })
+    })
     </script>
-
 </body>
 
 </html>
