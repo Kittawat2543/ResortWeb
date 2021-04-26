@@ -68,8 +68,8 @@ th {
                     <p style="font-size:40px;">จัดการพนักงาน</p>
 
                     <div class="table-responsive text-nowrap">
-                        <table class="table">
-                            <thead class="black black-text">
+                        <table class="table align-middle">
+                            <thead>
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Name</th>
@@ -79,8 +79,6 @@ th {
                                     <th scope="col">Gender</th>
                                     <th scope="col">Job</th>
                                     <th scope="col">Action</th>
-
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -95,13 +93,14 @@ th {
                                     <td><?php echo $data['salary']; ?></td>
                                     <td><?php echo $data['gender']; ?></td>
                                     <td><?php echo $data['job_position']; ?></td>
-                                    <td> <a type="button" class="btn btn-danger">Delete</a></td>
+                                    <td> <button type="button" class="btn btn-danger btn-sm px-3">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td>
                                 </tr>
                                 <?php }?>
-
                             </tbody>
                         </table>
-
 
                     </div>
 

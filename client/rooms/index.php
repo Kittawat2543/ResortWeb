@@ -39,40 +39,39 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.css" />
 
-    
+
     <style>
-        table.dataTable thead .sorting:after,
-        table.dataTable thead .sorting:before,
-        table.dataTable thead .sorting_asc:after,
-        table.dataTable thead .sorting_asc:before,
-        table.dataTable thead .sorting_asc_disabled:after,
-        table.dataTable thead .sorting_asc_disabled:before,
-        table.dataTable thead .sorting_desc:after,
-        table.dataTable thead .sorting_desc:before,
-        table.dataTable thead .sorting_desc_disabled:after,
-        table.dataTable thead .sorting_desc_disabled:before {
-            bottom: .5em;
-        }
+    table.dataTable thead .sorting:after,
+    table.dataTable thead .sorting:before,
+    table.dataTable thead .sorting_asc:after,
+    table.dataTable thead .sorting_asc:before,
+    table.dataTable thead .sorting_asc_disabled:after,
+    table.dataTable thead .sorting_asc_disabled:before,
+    table.dataTable thead .sorting_desc:after,
+    table.dataTable thead .sorting_desc:before,
+    table.dataTable thead .sorting_desc_disabled:after,
+    table.dataTable thead .sorting_desc_disabled:before {
+        bottom: .5em;
+    }
 
-        .dataTables_filter,
-        .pagination {
-            float: right;
-        }
+    .dataTables_filter,
+    .pagination {
+        float: right;
+    }
 
-        .dataTables_empty,
-        th,td {
-            text-align: center;
-        }
+    .dataTables_empty,
+    th,
+    td {
+        text-align: center;
+    }
 
-        .bord {
-            background-color: tomato;
-            color: white;
-            border: 2px solid black;
-            margin: 10px;
-            padding: 20px;
-        }
-
-       
+    .bord {
+        background-color: tomato;
+        color: white;
+        border: 2px solid black;
+        margin: 10px;
+        padding: 20px;
+    }
     </style>
 </head>
 
@@ -84,26 +83,26 @@
     <main>
         <div class="container-fluid mb-5">
             <div class="card text-left">
-              <div class="card-body">
+                <div class="card-body">
 
-                <p style="font-size:35px;">Room</p>
+                    <p style="font-size:35px;">Room</p>
 
-                <div class="bord">
-                    <h2>room1</h2>
-                    <p>London is the capital of England.</p>
-                </div> 
+                    <div class="bord">
+                        <h2>room1</h2>
+                        <p>London is the capital of England.</p>
+                    </div>
 
-                <div class="bord">
-                    <h2>room2</h2>
-                    <p>Paris is the capital of France.</p>
+                    <div class="bord">
+                        <h2>room2</h2>
+                        <p>Paris is the capital of France.</p>
+                    </div>
+
+                    <div class="bord">
+                        <h2>room3</h2>
+                        <p>Tokyo is the capital of Japan.</p>
+                    </div>
+
                 </div>
-
-                <div class="bord">
-                    <h2>room3</h2>
-                    <p>Tokyo is the capital of Japan.</p>
-                </div>
-
-               </div>
 
             </div>
         </div>
@@ -122,26 +121,27 @@
     <script src="../../node_modules/mdbootstrap/js/addons/datatables.min.js"></script>
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
     <script src="../assets/js/sidebar.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.js">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script src="js/allJs.js"></script>
     <script src="../../assets/js/block-console.js"></script>
-    
+
     <script>
-        $('#dataTable').DataTable({
-            "order": [0, 'asc'],
-            "language": [{
-                "emptyTable": `<div class="col-md-12 mt-5">
+    $('#dataTable').DataTable({
+        "order": [0, 'asc'],
+        "language": [{
+            "emptyTable": `<div class="col-md-12 mt-5">
             <center style="opacity: 0.5;">
             <i class="fad fa-file-times" style="font-size: 100px; color:red;"></i>
             <p class="text-center">ไม่มีข้อมูลใบเสร็จ</p>
             </center>
         </div>`
-            }],
-        });
+        }],
+    });
 
-        $.fn.dataTable.ext.classes.sPageButton = 'button primary_button';
+    $.fn.dataTable.ext.classes.sPageButton = 'button primary_button';
     </script>
 
 </body>

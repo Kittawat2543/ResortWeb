@@ -1,3 +1,12 @@
+<?php
+ include_once('../../connect.php');
+ require_once('../authen.php');
+
+ $sql = "SELECT * FROM Room";
+ $result = mysqli_query($conn,$sql);
+ 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +56,60 @@
             <div class="card text-left">
                 <div class="card-body">
                     <h1 style="text-align:ceter">ห้องพัก</h1>
-                    <button type="button" class="btn btn-success btn-rounded">Add</button>
+
+                    <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog"
+                        aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center">
+                                    <h4 class="modal-title w-100 font-weight-bold">Add room</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    </button>
+                                </div>
+                                <div class="modal-body mx-3">
+
+                                    <form class="text-center" method="POST" action="php/createRoom.php" id="form">
+                                        <div class="md-form mb-5">
+                                            <input type="text" id="room_number" name="room_number" class="form-control validate" required>
+                                            <label data-error="wrong" data-success="right"
+                                                for="room_number">หมายเลขห้อง</label>
+                                        </div>
+
+                                        <div class="md-form mb-5">
+                                            <input type="text" id="type" name="type" class="form-control validate" required>
+                                            <label data-error="wrong" data-success="right"
+                                                for="type">ประเภทของห้อง</label>
+                                        </div>
+
+                                        <div class="md-form mb-5">
+                                            <input type="text" id="person" name="person" class="form-control validate" required>
+                                            <label data-error="wrong" data-success="right"
+                                                for="person">จำนวนผู้เข้าพัก</label>
+                                        </div>
+
+                                        <div class="md-form mb-5">
+                                            <input type="number" id="price" name="price" class=" form-control validate" required>
+                                            <label data-error="wrong" data-success="success" for="form34">ราคา</label>
+                                        </div>
+
+                                </div>
+                                
+                                <div class="modal-footer d-flex justify-content-center">
+                                    <button class="btn btn-unique" type="submit">Create room <i
+                                            class="fas fa-paper-plane-o ml-1"></i></button>
+                                </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="" class="btn btn-success btn-rounded btn-sm mb-4" data-toggle="modal"
+                            data-target="#modalContactForm">Add room</a>
+                    </div>
+
                     <table class="table align-middle">
                         <thead>
                             <tr>
@@ -55,11 +117,12 @@
                                 <th scope="col">Room Type</th>
                                 <th scope="col">Person</th>
                                 <th scope="col">Price</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            
+                            <!-- <tr>
                                 <th scope="row">1</th>
                                 <td>studio</td>
                                 <td>1</td>
@@ -69,29 +132,21 @@
                                         <i class="fas fa-times"></i>
                                     </button>
                                 </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>singleroom</td>
-                                <td>2</td>
-                                <td>1000</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm px-3">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Hic</td>
-                                <td>4-6</td>
-                                <td>1500</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm px-3">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                            </tr> -->
+                            <?php while ($data = mysqli_fetch_array($result)) {
+                                    ?>
+                                <tr>
+                                    <td><?php echo $data['roomID']; ?></td>
+                                    <td><?php echo $data['roomType']; ?></td>
+                                    <td><?php echo $data['person']; ?></td>
+                                    <td><?php echo $data['price']; ?></td>
+                                    <td><?php echo $data['status'] == 0 ? 'ว่าง' : 'ไม่ว่าง'; ?></td>
+                                    <!-- <td> <button type="button" class="btn btn-danger btn-sm px-3">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td> -->
+                                </tr>
+                                <?php }?>
                         </tbody>
                     </table>
 
@@ -104,80 +159,6 @@
     </main>
     <!--/Main layout -->
 
-
-
-    <!-- Modal: modalPoll -->
-    <div class="modal  fade bd-example-modal-lg" id="modalCart" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
-        <div class="modal-dialog modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <!--Header-->
-                <div class="modal-header">
-                    <p class="heading lead">
-                    <h4 class="card-title text-center" style="color: cornflowerblue;"><i class="fad fa-cart-arrow-down"
-                            style="font-size: 30px;"></i> Cart
-                    </h4>
-                    </p>
-
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="white-text">×</span>
-                    </button>
-                </div>
-
-                <!--Body-->
-                <div class="modal-body">
-                    <div class="table-responsive">
-                        <table class="table table-lg table-striped w-100">
-                            <!--Table head-->
-                            <thead>
-                                <tr class="text-center">
-                                    <th>#ID</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Amount</th>
-                                    <th>Total</th>
-                                    <th>Clear</th>
-
-                                </tr>
-                            </thead>
-                            <!--Table head-->
-                            <!--Table body-->
-                            <tbody class="show-cart">
-
-                            </tbody>
-                            <!--Table body-->
-                        </table>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5 class="pl-5">Total price : <span class="total-cart"></span> ฿</h5>
-                            <div class="md-form ml-5">
-                                <input type="number" min="0" id="income" name="income" class="form-control" required>
-                                <label for="form1">Money received</label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <!-- <div class="md-form ml-5 mt-5">
-                                <input type="text" id="coupon" name="coupon" class="form-control" required>
-                                <label for="form1">คูปองส่วนลด</label>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-
-                <!--Footer-->
-                <div class="modal-footer justify-content-center">
-                    <a type="button" class="check-out btn btn-primary waves-effect waves-light">Check out
-                        <i class="fa fa-paper-plane ml-1"></i>
-                    </a>
-                    <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Cancel</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal: modalPoll -->
 
 
 
@@ -197,13 +178,37 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.js">
     </script>
-    <script src="../assets/js/cart.js"></script>
     <script src="../../assets/js/block-console.js"></script>
 
     <script>
-    $('#dataTable').DataTable({
-        "order": [0, 'asc']
-    });
+    $(document).ready(function(){
+
+        $("#form").submit(function (evennt){
+            event.preventDefault();
+
+            var data = $(this).serialize();
+            console.log(data)
+
+            $.ajax({
+                type:'POST',
+                url:'php/createRoom.php',
+                data:data,
+                dataType:'JSON',
+                success:function (data){
+                    
+                    if(data.status){
+                        Swal.fire('Success!',data.message,'success').then(()=>{
+                            window.location.href = 'index.php';
+                        })
+                    }else{
+                        Swal.fire('Fail!',data.message,'error').then(()=>{
+                             window.location.href = 'index.php';
+                        })
+                    }
+                }
+            })
+        })
+    })
     </script>
 </body>
 
