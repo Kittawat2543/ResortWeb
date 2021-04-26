@@ -60,10 +60,19 @@
         }
 
         .dataTables_empty,
-        th,
-        td {
+        th,td {
             text-align: center;
         }
+
+        .bord {
+            background-color: tomato;
+            color: white;
+            border: 2px solid black;
+            margin: 10px;
+            padding: 20px;
+        }
+
+       
     </style>
 </head>
 
@@ -76,9 +85,26 @@
         <div class="container-fluid mb-5">
             <div class="card text-left">
               <div class="card-body">
-                <p>Hello</p>
 
-              </div>
+                <p style="font-size:35px;">Room</p>
+
+                <div class="bord">
+                    <h2>room1</h2>
+                    <p>London is the capital of England.</p>
+                </div> 
+
+                <div class="bord">
+                    <h2>room2</h2>
+                    <p>Paris is the capital of France.</p>
+                </div>
+
+                <div class="bord">
+                    <h2>room3</h2>
+                    <p>Tokyo is the capital of Japan.</p>
+                </div>
+
+               </div>
+
             </div>
         </div>
     </main>

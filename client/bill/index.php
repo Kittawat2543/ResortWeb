@@ -55,6 +55,14 @@
                 float: left;
             }
         }
+
+        table,tr,td,th {
+            border: 1px solid darkgrey;
+            border-collapse: collapse;
+            padding: 20px;
+            width: 50%;    
+            background-color: white;
+    }
     </style>
 </head>
 
@@ -67,7 +75,48 @@
         <div class="container-fluid mb-5">
             <div class="card text-left">
               <div class="card-body">
-                <p>Hello</p>
+
+                <p style="font-size:35px;">ใบเสร็จของเเต่ละห้อง</p>
+                
+                <table >
+                    <tr>
+                        <th>ID_Room</th>
+                        <th>NameOfGuest</th> 
+                        <th>Room</th>
+                        <th>Trasaction_Date</th>
+                        <th>Status</th>
+                        <th>Payment</th>
+                    </tr>
+                    <tr>
+                        <td>Jill</td>
+                        <td>Smith</td>
+                        <td>50</td>
+                        <td>50</td>
+                        <td>50</td>
+                        <td><button type="button" class="btn btn-warning">ชำระเงิน</button></td>
+                    </tr>
+                    <tr>
+                        <td>Eve</td>
+                        <td>Jackson</td>
+                        <td>94</td>
+                        <td>50</td>
+                        <td>50</td>
+                        <td><button type="button" class="btn btn-warning">ชำระเงิน</button></td>
+                    </tr>
+                    <tr>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>80</td>
+                        <td>50</td>
+                        <td>50</td>
+                        <td><button type="button" class="btn btn-warning">ชำระเงิน</button></td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <button type="button" class="btn btn-danger">Edit</button>
+                <button type="button" class="btn btn-success">Save</button>
 
               </div>
             </div>

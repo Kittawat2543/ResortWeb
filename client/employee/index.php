@@ -35,6 +35,22 @@
         border-top-left-radius: .25rem;
         border-top-right-radius: .25rem;
     }
+
+    table,tr,td {
+        
+        border: 1px solid darkgrey;
+        border-collapse: collapse;
+        padding: 20px;
+        width: 50%;    
+        background-color: white;
+        font-size: 30px;
+    }
+
+    th {
+        padding: 20px;
+       
+    }
+
 </style>
 
 <body class="fixed-sn cyan-skin">
@@ -45,12 +61,62 @@
     <main>
         <div class="container-fluid mb-5">
             <div class="card text-left">
-              <div class="card-body">
-                <p>Hello</p>
 
+              <div class="card-body">
+
+              <p style="font-size:40px;">จัดการพนักงาน</p>
+                <table style="width:100%">
+
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Tel</th> 
+                        <th>Dob</th>
+                        <th>Salary</th>
+                        <th>Gender</th>
+                        <th>Job</th>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td>123456</td>
+                        <td>Jill</td>
+                        <td>056546123</td>
+                        <td>50</td>
+                        <td>50</td>
+                        <td>50</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>123456</td>
+                        <td>Eve</td>
+                        <td>05216544</td>
+                        <td>94</td>
+                        <td>50</td>
+                        <td>50</td>
+                        <td>50</td>
+                    </tr>
+                    <tr>
+                        <td>123456</td>
+                        <td>John</td>
+                        <td>0561649874</td>
+                        <td>80</td>
+                        <td>50</td>
+                        <td>50</td>
+                        <td>50</td>
+                    </tr>
+
+                    
+                </table>
+                
+                <button type="button" class="btn btn-danger">Edit</button>
+                <button type="button" class="btn btn-success">Save</button>
               </div>
+                
             </div>
+            
         </div>
+        
     </main>
     <!--/Main layout-->
 
