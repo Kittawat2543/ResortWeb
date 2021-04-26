@@ -46,16 +46,53 @@
         <div class="container-fluid mb-5">
             <div class="card text-left">
                 <div class="card-body">
-                    <h2>ห้องพัก</h2>
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>รหัสห้อง</th>
-                            <th>รหัสห้อง</th>
-                            <th>รหัสห้อง</th>
-                            <th>รหัสห้อง</th>
-                            <th>รหัสห้อง</th>
-                        </tr>
-
+                    <h1 style="text-align:ceter">ห้องพัก</h1>
+                    <button type="button" class="btn btn-success btn-rounded">Add</button>
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Room Type</th>
+                                <th scope="col">Person</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>studio</td>
+                                <td>1</td>
+                                <td>500</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm px-3">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>singleroom</td>
+                                <td>2</td>
+                                <td>1000</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm px-3">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Hic</td>
+                                <td>4-6</td>
+                                <td>1500</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-sm px-3">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
 
                 </div>
