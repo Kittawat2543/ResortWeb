@@ -26,6 +26,19 @@
                     <li><a class="waves-effect" href="../bill"> <i class="fad fa-file-invoice"
                                 style="margin-right: 30px; font-size:30px; padding-right:-4px;"></i> Receipt</a>
                     </li>
+
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-user-alt mr-3"
+                                style="font-size:25px; margin-right:20px; padding-right:5px;"></i> Receipt
+                            <i class="fas fa-angle-down rotate-icon"></i></a>
+                        <div class="collapsible-body">
+                            <ul class="list-unstyled">
+                                <li><a href="../bill/index.php" class="waves-effect">Bill</a>
+                                </li>
+                                <li><a href="#" class="waves-effect">???</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                     <!-- <li><a class="waves-effect" href="../coupon/"> <i class="fab fa-slack-hash"
                                 style="margin-right: 25px; font-size:30px;"></i>Coupon</a>
                     </li> -->
