@@ -5,7 +5,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT * FROM members WHERE username = ?;");
+    $stmt = $conn->prepare("SELECT * FROM Employee WHERE username = ?;");
     $stmt->bind_param('s', $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -18,17 +18,13 @@
 
             
 
-            $sql = "SELECT * FROM members WHERE `username` LIKE '".$username."'";
+            $sql = "SELECT * FROM Employee WHERE `username` LIKE '".$username."'";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
            
 
             $_SESSION['username'] = $username;
-            $_SESSION['role'] = $row['role'];
-            $_SESSION['UserID'] = $row['user_id'];
-            $_SESSION['ShopID'] = $row['shop_id'];
-            $_SESSION['verify'] = $row['verify'];
-            $_SESSION['email'] = $row['email'];
+            $_SESSION['employeeID'] = $row['employeeID'];
 
             // $cookie_value = $username;
             // setcookie('UserID', $cookie_value, time() + (86400 * 30), "/");

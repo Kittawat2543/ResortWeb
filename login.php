@@ -1,9 +1,9 @@
 <?php 
-//  include_once('connect.php');
-//  error_reporting(0);
-//  if($_SESSION['UserID']){
-//     header('Location: client/index.php');
-//  }
+ include_once('connect.php');
+ error_reporting(0);
+ if($_SESSION['UserID']){
+    header('Location: client/index.php');
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,6 +98,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="assets/js/login.js"></script>
     <script src="assets/js/block-console.js"></script>
-</body>
+
+
+    </<body>
 
 </html>

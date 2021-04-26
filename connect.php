@@ -8,7 +8,7 @@
     // error_reporting(0); //ปิด Error กรณีเราสร้างตัวแสดง Error ของเราขึ้นมาเอง
     
     //เชื่อมต่อ Database
-    $conn = new mysqli('oatwant.com','thanathi_pos','Cp251POS','thanathi_pos');
+    $conn = new mysqli('oatwant.com','thanathi_resort','Resort123','thanathi_resort');
 
     // $conn = new mysqli('localhost','thanathi_pos','Cp251POS','thanathi_pos');
 
