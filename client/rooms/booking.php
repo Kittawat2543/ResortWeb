@@ -22,7 +22,7 @@ if (!$_GET['id']){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipt</title>
+    <title>Booking Room</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -77,46 +77,48 @@ if (!$_GET['id']){
         <div class="container-fluid mb-5">
             <p style="font-size:35px;">Room Booking</p>
 
-                                
-                <div class="touch">
-                    <div class="card">
-                        <div class="card-body">
-                            <p>รายละเอียดการจอง</p>
-                            <!-- Form -->
-                                <form id="form" class="text-center" style="color: #757575;">
 
-                                <!-- Email -->
-                                <div class="md-form">
-                                    <input type="text" id="room_id" name="room_id" class="form-control" value="<?php echo $_GET['id'];?>">
-                                    <label for="room_id">เบอร์ห้อง</label>
-                                </div>
+            <div class="touch">
+                <div class="card">
+                    <div class="card-body">
+                        <p>รายละเอียดการจอง</p>
+                        <!-- Form -->
+                        <form id="form" class="text-center" style="color: #757575;">
 
-                                <!-- Password -->
-                                <div class="md-form">
-                                    <input type="text" id="tel" name="tel" id="materialLoginFormPassword" class="form-control">
-                                    <label for="tel">เบอร์โทรศัพท์ผู้จอง</label>
-                                </div>
+                            <!-- Email -->
+                            <div class="md-form">
+                                <input type="text" id="room_id" name="room_id" class="form-control"
+                                    value="<?php echo $_GET['id'];?>">
+                                <label for="room_id">เบอร์ห้อง</label>
+                            </div>
 
-            
+                            <!-- Password -->
+                            <div class="md-form">
+                                <input type="text" id="tel" name="tel" id="materialLoginFormPassword"
+                                    class="form-control">
+                                <label for="tel">เบอร์โทรศัพท์ผู้จอง</label>
+                            </div>
 
-                                <!-- Sign in button -->
-                                    <button type="submit" class="btn btn-deep-orange">Submit</button>
 
-                                </form>
-                                <!-- Form -->
-                        </div>
+
+                            <!-- Sign in button -->
+                            <button type="submit" class="btn btn-deep-orange">Submit</button>
+
+                        </form>
+                        <!-- Form -->
                     </div>
                 </div>
-
-
-
-                    </div>
-                </main>
-
-                </div>
-
             </div>
+
+
+
         </div>
+    </main>
+
+    </div>
+
+    </div>
+    </div>
     </main>
     <!--/Main layout-->
 
@@ -138,30 +140,30 @@ if (!$_GET['id']){
 
     <script src="js/allJs.js"></script>
     <script src="../../assets/js/block-console.js"></script>
-    
-     <script>
-    $(document).ready(function(){
 
-        $("#form").submit(function (evennt){
+    <script>
+    $(document).ready(function() {
+
+        $("#form").submit(function(evennt) {
             event.preventDefault();
 
             var data = $(this).serialize();
             console.log(data)
 
             $.ajax({
-                type:'POST',
-                url:'php/createTransaction.php',
-                data:data,
-                dataType:'JSON',
-                success:function (data){
-                    
-                    if(data.status){
-                        Swal.fire('Success!',data.message,'success').then(()=>{
+                type: 'POST',
+                url: 'php/createTransaction.php',
+                data: data,
+                dataType: 'JSON',
+                success: function(data) {
+
+                    if (data.status) {
+                        Swal.fire('Success!', data.message, 'success').then(() => {
                             window.location.href = 'index.php';
                         })
-                    }else{
-                        Swal.fire('Fail!',data.message,'error').then(()=>{
-                             window.location.href = 'index.php';
+                    } else {
+                        Swal.fire('Fail!', data.message, 'error').then(() => {
+                            window.location.href = 'index.php';
                         })
                     }
                 }

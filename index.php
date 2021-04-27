@@ -91,7 +91,7 @@ error_reporting(0);
                     <div class="col-md-6 text-center text-md-left margins">
                         <div class="white-text">
                             <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">Resort
-                                Management กกกก</h1>
+                                Management</h1>
                             <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
                             <h6 class="wow fadeInLeft" data-wow-delay="0.3s">ระบบจัดการรีสอร์ท</h6>
                             <br>

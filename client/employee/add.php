@@ -63,7 +63,7 @@ th {
 
                 <div class="card-body">
 
-                    <p style="font-size:40px;">เพิ่มพนักงาน</p>
+                    <p style="font-size:40px;">Add employee</p>
                     <form class="text-center" method="POST" action="assets/php/register.php" id="form">
 
                         <div class="md-form">

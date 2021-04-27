@@ -65,7 +65,7 @@ th {
 
                 <div class="card-body">
 
-                    <p style="font-size:40px;">จัดการพนักงาน</p>
+                    <p style="font-size:40px;">Manage Employee</p>
 
                     <div class="table-responsive text-nowrap">
                         <table class="table align-middle">
@@ -93,9 +93,8 @@ th {
                                     <td><?php echo $data['salary']; ?></td>
                                     <td><?php echo $data['gender']; ?></td>
                                     <td><?php echo $data['job_position']; ?></td>
-                                    <td> <button type="button" class="btn btn-danger btn-sm px-3">
-                                            <i class="fas fa-times"></i>
-                                        </button>
+                                    <td> <a href="um-edit.php?id=<?php echo $data['employeeID']; ?> " type=" button"
+                                            class="btn btn-warning btn-md px-3">Edit</a>
                                     </td>
                                 </tr>
                                 <?php }?>

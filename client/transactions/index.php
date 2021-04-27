@@ -17,7 +17,7 @@ require_once('../authen.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipt</title>
+    <title>Transaction</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -72,43 +72,44 @@ require_once('../authen.php');
     <!--Main layout-->
     <main>
         <div class="container-fluid mb-5">
-            <p style="font-size:35px;">Transaction</p>
+
             <div class="row">
                 <div class="col-md-12">
-                <div class="card">
-                <div class="card-body">
-                <div class="table-responsive">
-                 <table class="table align-middle">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Tel guest</th>
-                            <th scope="col">RoomID</th>
-                            <th scope="col">Transaction Date</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while ($data = mysqli_fetch_array($result)) {
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <p style="font-size:35px;">Transaction</p>
+                                <table class="table align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Tel guest</th>
+                                            <th scope="col">RoomID</th>
+                                            <th scope="col">Transaction Date</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while ($data = mysqli_fetch_array($result)) {
                                     ?>
-                        <tr>
-                            <td><?php echo $data['transactionID']; ?></td>
-                            <td><?php echo $data['telGuest']; ?></td>
-                            <td><?php echo $data['roomID']; ?></td>
-                            <td><?php echo $data['transaction_date']; ?></td>
-                            <td> <a href="view.php?id=<?php echo $data['transactionID']; ?>" type=" button"
-                                    class="btn btn-success btn-sm px-3">
-                                    View
-                                </a>
-                            </td>
-                        </tr>
-                        <?php }?>
-                    </tbody>
-                </table>
-                </div>
-               
-                </div>
-                </div>
+                                        <tr>
+                                            <td><?php echo $data['transactionID']; ?></td>
+                                            <td><?php echo $data['telGuest']; ?></td>
+                                            <td><?php echo $data['roomID']; ?></td>
+                                            <td><?php echo $data['transaction_date']; ?></td>
+                                            <td> <a href="view.php?id=<?php echo $data['transactionID']; ?>"
+                                                    type=" button" class="btn btn-success btn-sm px-3">
+                                                    View
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <?php }?>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
 

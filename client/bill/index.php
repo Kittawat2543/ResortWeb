@@ -18,7 +18,7 @@ require_once('../authen.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Manager | Product List</title>
+    <title>Receipt</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -29,48 +29,46 @@ require_once('../authen.php');
         href="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.css" />
 
     <style>
-        table.dataTable thead .sorting:after,
-        table.dataTable thead .sorting:before,
-        table.dataTable thead .sorting_asc:after,
-        table.dataTable thead .sorting_asc:before,
-        table.dataTable thead .sorting_asc_disabled:after,
-        table.dataTable thead .sorting_asc_disabled:before,
-        table.dataTable thead .sorting_desc:after,
-        table.dataTable thead .sorting_desc:before,
-        table.dataTable thead .sorting_desc_disabled:after,
-        table.dataTable thead .sorting_desc_disabled:before {
-            bottom: .5em;
-        }
+    table.dataTable thead .sorting:after,
+    table.dataTable thead .sorting:before,
+    table.dataTable thead .sorting_asc:after,
+    table.dataTable thead .sorting_asc:before,
+    table.dataTable thead .sorting_asc_disabled:after,
+    table.dataTable thead .sorting_asc_disabled:before,
+    table.dataTable thead .sorting_desc:after,
+    table.dataTable thead .sorting_desc:before,
+    table.dataTable thead .sorting_desc_disabled:after,
+    table.dataTable thead .sorting_desc_disabled:before {
+        bottom: .5em;
+    }
+
+    .dataTables_filter,
+    .pagination {
+        float: right;
+    }
+
+    .dataTables_empty,
+    th,
+    td {
+        text-align: center;
+    }
+
+    .switch label input[type="checkbox"]:checked+.lever {
+        background-color: #a5d6a7;
+    }
+
+    .switch label input[type="checkbox"]:checked+.lever:after {
+        left: 1.5rem;
+        background-color: rgba(76, 175, 80, 0.7);
+    }
+
+    @media only screen and (max-width: 767px) {
 
         .dataTables_filter,
         .pagination {
-            float: right;
+            float: left;
         }
-
-        .dataTables_empty,
-        th,
-        td {
-            text-align: center;
-        }
-
-        .switch label input[type="checkbox"]:checked+.lever {
-            background-color: #a5d6a7;
-        }
-
-        .switch label input[type="checkbox"]:checked+.lever:after {
-            left: 1.5rem;
-            background-color: rgba(76, 175, 80, 0.7);
-        }
-
-        @media only screen and (max-width: 767px) {
-
-            .dataTables_filter,
-            .pagination {
-                float: left;
-            }
-        }
-
-  
+    }
     </style>
 </head>
 
@@ -80,10 +78,10 @@ require_once('../authen.php');
     <?php require_once('../include/sidebar.php'); ?>
     <!--Main layout-->
     <main>
-         <div class="container-fluid mb-5">
+        <div class="container-fluid mb-5">
             <div class="card text-left">
                 <div class="card-body">
-                    <h1 style="text-align:ceter">ใบเสร็จ</h1>
+                    <h1 style="text-align:ceter">Bill</h1>
 
                     <table class="table align-middle">
                         <thead>
@@ -99,25 +97,25 @@ require_once('../authen.php');
                             </tr>
                         </thead>
                         <tbody>
-                        
+
                             </tr>
                             <?php while ($data = mysqli_fetch_array($result)) {
                                     ?>
-                                <tr>
-                                    <td><?php echo $data[0]; ?></td>
-                                    <td><?php echo $data['transactionID']; ?></td>
-                                    <td><?php echo $data['roomID']; ?></td>
-                                    <td><?php echo $data['telGuest']; ?></td>
-                                    <td><?php echo $data['total_bill']; ?></td>
+                            <tr>
+                                <td><?php echo $data[0]; ?></td>
+                                <td><?php echo $data['transactionID']; ?></td>
+                                <td><?php echo $data['roomID']; ?></td>
+                                <td><?php echo $data['telGuest']; ?></td>
+                                <td><?php echo $data['total_bill']; ?></td>
 
-                                    <td><?php echo $data['status'] == 0 ? 'ยังไม่ชำระเงิน' : 'ชำระเงินเสร็จสิ้น'; ?></td>
-                                    <td> 
+                                <td><?php echo $data['status'] == 0 ? 'ยังไม่ชำระเงิน' : 'ชำระเงินเสร็จสิ้น'; ?></td>
+                                <td>
                                     <a href="confirm.php?id=<?php echo $data[0]; ?>" class="btn btn-danger btn-sm px-3">
-                                            ยืนยันการชำระเงิน
+                                        ยืนยันการชำระเงิน
                                     </a>
-                                    </td>
-                                </tr>
-                                <?php }?>
+                                </td>
+                            </tr>
+                            <?php }?>
                         </tbody>
                     </table>
 
@@ -141,7 +139,8 @@ require_once('../authen.php');
     <script src="../../node_modules/mdbootstrap/js/addons/datatables.min.js"></script>
     <script src="../../node_modules/MDB-Pro/src/js/pro/sidenav.js"></script>
     <script src="../assets/js/sidebar.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/af-2.3.5/b-1.6.5/datatables.min.js">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="js/allJs.js"></script>
     <script src="../../assets/js/block-console.js"></script>

@@ -19,7 +19,7 @@ $result = mysqli_query($conn,$sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Receipt</title>
+    <title>Transaction</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -91,7 +91,8 @@ $result = mysqli_query($conn,$sql);
                             </div>
 
                             <div class="md-form mb-4">
-                                <input type="date" id="date_checkout" name="date_checkout" class="form-control validate">
+                                <input type="date" id="date_checkout" name="date_checkout"
+                                    class="form-control validate">
                                 <label data-error="wrong" data-success="right" for="defaultForm-pass">Date</label>
                             </div>
 
@@ -129,8 +130,9 @@ $result = mysqli_query($conn,$sql);
 
 
                             <div class=" text-center">
-                                <a href="" class="btn btn-danger btn-rounded mb-4 <?php echo $data['check_out'] == '0000-00-00 00:00:00' ? ' ':'disabled';?>" data-toggle="modal"
-                                    data-target="#modalLoginForm">Check Out</a>
+                                <a href=""
+                                    class="btn btn-danger btn-rounded mb-4 <?php echo $data['check_out'] == '0000-00-00 00:00:00' ? ' ':'disabled';?>"
+                                    data-toggle="modal" data-target="#modalLoginForm">Check Out</a>
                             </div>
                             <?php }
                         }?>
@@ -168,26 +170,26 @@ $result = mysqli_query($conn,$sql);
 
     <script>
     $(document).ready(function() {
-     $("#form").submit(function (evennt){
+        $("#form").submit(function(evennt) {
             event.preventDefault();
 
             var data = $(this).serialize();
             console.log(data)
 
             $.ajax({
-                type:'POST',
-                url:'php/checkout.php',
-                data:data,
-                dataType:'JSON',
-                success:function (data){
-                    
-                    if(data.status){
-                        Swal.fire('Success!',data.message,'success').then(()=>{
+                type: 'POST',
+                url: 'php/checkout.php',
+                data: data,
+                dataType: 'JSON',
+                success: function(data) {
+
+                    if (data.status) {
+                        Swal.fire('Success!', data.message, 'success').then(() => {
                             window.location.href = 'index.php';
                         })
-                    }else{
-                        Swal.fire('Fail!',data.message,'error').then(()=>{
-                             window.location.href = 'index.php';
+                    } else {
+                        Swal.fire('Fail!', data.message, 'error').then(() => {
+                            window.location.href = 'index.php';
                         })
                     }
                 }

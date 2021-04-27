@@ -23,7 +23,7 @@
                     <li><a class="collapsible-header waves-effect arrow-r" href="../rooms/index.php"><i
                                 class="fad fa-box-full" style="font-size:25px; margin-right:20px;"></i> Booking Room</a>
                     </li>
-                   
+
 
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-file-invoice"
                                 style="margin-right: 30px; font-size:30px; padding-right:-4px;"></i> Receipt
@@ -32,12 +32,12 @@
                             <ul class="list-unstyled">
                                 <li><a href="../bill/index.php" class="waves-effect">Bill</a>
                                 </li>
-                                <li><a href="../transactions/" class="waves-effect">Tracsaction</a>
+                                <li><a href="../transactions/" class="waves-effect">Transaction</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
-                   
+
 
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-user-alt mr-3"
                                 style="font-size:25px; margin-right:20px; padding-right:5px;"></i> Management
