@@ -6,9 +6,8 @@
 include_once('../../connect.php');
 require_once('../authen.php');
 
- $sql = "SELECT * FROM `Transactions` WHERE `status` = 0";
+ $sql = "SELECT * FROM Transactions ORDER BY `transaction_date` ASC";
  $result = mysqli_query($conn,$sql);
-
 
 
 ?>
@@ -67,55 +66,58 @@ require_once('../authen.php');
 <body class="fixed-sn cyan-skin">
 
     <!-- Sidebar -->
-    <?php require_once('../include/sidebar.php'); ?>
+
+    <!-- <?php require_once('../include/sidebar.php'); ?> -->
+
     <!--Main layout-->
     <main>
         <div class="container-fluid mb-5">
             <p style="font-size:35px;">Transaction</p>
             <div class="row">
-                <?php while ($data = mysqli_fetch_array($result)) {
-                    
-                ?>
+                <div class="col-md-12">
+                <div class="card">
+                <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table align-middle">
-                        <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Tel guest</th>
-                                <th scope="col">RoomID</th>
-                                <th scope="col">Date checkIN</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            </tr>
-                            <?php while ($data = mysqli_fetch_array($result)) {
+                 <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Tel guest</th>
+                            <th scope="col">RoomID</th>
+                            <th scope="col">Transaction Date</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php while ($data = mysqli_fetch_array($result)) {
                                     ?>
-                            <tr>
-                                <td><?php echo $data['transactionID']; ?></td>
-                                <td><?php echo $data['telGuest']; ?></td>
-                                <td><?php echo $data['roomID']; ?></td>
-                                <td><?php echo $data['check_in']; ?></td>
-                                <!-- <td><?php echo $data['status'] == 0 ? 'ว่าง' : 'ไม่ว่าง'; ?></td> -->
-                                <td> <a href="view.php?id=<?php echo $data['transactionID']?>" type="button"
-                                        class="btn btn-success btn-sm px-3">
-                                        View
-                                    </a>
-                                </td>
-                            </tr>
-                            <?php }?>
-                        </tbody>
-                    </table>
-                    <?php }?>
+                        <tr>
+                            <td><?php echo $data['transactionID']; ?></td>
+                            <td><?php echo $data['telGuest']; ?></td>
+                            <td><?php echo $data['roomID']; ?></td>
+                            <td><?php echo $data['transaction_date']; ?></td>
+                            <td> <a href="view.php?id=<?php echo $data['transactionID']; ?>" type=" button"
+                                    class="btn btn-success btn-sm px-3">
+                                    View
+                                </a>
+                            </td>
+                        </tr>
+                        <?php }?>
+                    </tbody>
+                </table>
                 </div>
-
-
-
-
-
-
+               
+                </div>
+                </div>
+                </div>
             </div>
+
+
+
+
+
+
+        </div>
 
 
 
