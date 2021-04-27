@@ -80,8 +80,8 @@
                 <div class="col-md-4 col-sm-12 col-lg-4 col-xl-4">
                     <!-- Card Narrower -->
                     <div class="card card-cascade narrower">
-                    
-                    <!-- Card content -->
+
+                        <!-- Card content -->
                         <div class="card-body card-body-cascade">
 
                             <!-- Title -->
@@ -91,31 +91,31 @@
                             <p class="card-text">จำนวนคนเข้าพัก : <?php echo $data['person']?></p>
 
                             <!-- Button -->
-                            <a class="btn btn-blue" href="/client/rooms/booking.php?id=<?php echo $data['roomID']?>">จองห้อง</a>
+                            <a class="btn btn-blue" href="booking.php?id=<?php echo $data['roomID']?>">จองห้อง</a>
 
                         </div>
                     </div>
                 </div>
                 <?php }?>
 
-                
-
-            
-
-            
-            </div>
-            
-                
 
 
 
-                    </div>
-                </main>
 
-                </div>
 
             </div>
+
+
+
+
+
         </div>
+    </main>
+
+    </div>
+
+    </div>
+    </div>
     </main>
     <!--/Main layout-->
 

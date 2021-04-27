@@ -9,10 +9,12 @@
     $tel = $_POST['tel'];
     $status = false;
     $date = date("Y-m-d");
+    $transacID = rand(0,99999999) * 999999;
     
-    
-   $sql_create = "INSERT INTO `Transactions` (`roomID`,`employeeID`,`telGuest`,`check_in`,`status`)
-                        VALUES('".$room_id."',
+   $sql_create = "INSERT INTO `Transactions` (`transactionID`,`roomID`,`employeeID`,`telGuest`,`check_in`,`status`)
+                        VALUES(
+                            '".$transacID."',
+                            '".$room_id."',
                             '".$empID."',
                             '".$tel."',
                             '".$date."',
