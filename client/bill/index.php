@@ -1,3 +1,17 @@
+<?php 
+ include_once('../../connect.php');
+ require_once('../authen.php');
+
+
+include_once('../../connect.php');
+require_once('../authen.php');
+
+ $sql = "SELECT * FROM Payment INNER JOIN Transactions ON Payment.transactionID = Transactions.transactionID ORDER BY Transactions.transaction_date ASC";
+ $result = mysqli_query($conn,$sql);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,76 +80,48 @@
     <?php require_once('../include/sidebar.php'); ?>
     <!--Main layout-->
     <main>
-        <div class="container-fluid mb-5">
+         <div class="container-fluid mb-5">
             <div class="card text-left">
-              <div class="card-body">
+                <div class="card-body">
+                    <h1 style="text-align:ceter">ใบเสร็จ</h1>
 
-                <p style="font-size:40px ; text-align:center">ใบเสร็จของเเต่ละห้อง</p>
-                
-               <table class="table align-middle">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID_Room</th>
-                            <th scope="col">NameOfGuest</th>
-                            <th scope="col">Room</th>
-                            <th scope="col">Transaction Date</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Payment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                                <td>Sit</td>
-                                <td>Amet</td>
-                                <td>Amet</td>
-                                <td>Amet</td>
-                                
-                                <td>
-                                    <button type="button" class="btn btn-warning btn-rounded">
-                                    <i>ชำระเงิน</i>
-                                    </button>
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col">Payment ID</th>
+                                <th scope="col">transactionID</th>
+                                <th scope="col">RoomID</th>
+                                <th scope="col">telGuest</th>
+                                <th scope="col">Total Bill</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
 
-                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                            </tr>
+                            <?php while ($data = mysqli_fetch_array($result)) {
+                                    ?>
+                                <tr>
+                                    <td><?php echo $data[0]; ?></td>
+                                    <td><?php echo $data['transactionID']; ?></td>
+                                    <td><?php echo $data['roomID']; ?></td>
+                                    <td><?php echo $data['telGuest']; ?></td>
+                                    <td><?php echo $data['total_bill']; ?></td>
 
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                                <td>Adipisicing</td>
-                                <td>Elit</td>
-                                <td>Elit</td>
-                                <td>Elit</td>
-
-                                <td>
-                                    <button type="button" class="btn btn-warning btn-rounded">
-                                    <i>ชำระเงิน</i>
-                                    </button>
-                                </td>
-                       
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                                <td>Hic</td>
-                                <td>Fugiat</td>
-                                <td>Fugiat</td>
-                                <td>Fugiat</td>
-
-                                <td>
-                                    <button type="button" class="btn btn-warning btn-rounded">
-                                    <i>ชำระเงิน</i>
-                                    </button>
-                                </td>
-
-                        </tr>
-                    </tbody>
-
+                                    <td><?php echo $data['status'] == 0 ? 'ยังไม่ชำระเงิน' : 'ชำระเงินเสร็จสิ้น'; ?></td>
+                                    <td> 
+                                    <a href="confirm.php?id=<?php echo $data[0]; ?>" class="btn btn-danger btn-sm px-3">
+                                            ยืนยันการชำระเงิน
+                                    </a>
+                                    </td>
+                                </tr>
+                                <?php }?>
+                        </tbody>
                     </table>
 
-
-                    <button type="button" class="btn btn-danger btn-rounded">Edit</button>
-                    <button type="button" class="btn btn-success btn-rounded">Save</button>
-
-              </div>
+                </div>
             </div>
         </div>
 
@@ -159,12 +145,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="js/allJs.js"></script>
     <script src="../../assets/js/block-console.js"></script>
-    
-    <script>$('#dtBasicExample').mdbEditor({
-            mdbEditor: true
-            });
-            $('.dataTables_length').addClass('bs-select');
-    </script>
+
 
 </body>
 
