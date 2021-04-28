@@ -6,17 +6,21 @@
 
     $empID = $_SESSION['employeeID'];
     $room_id = $_POST['room_id'];
-    $tel = $_POST['tel'];
+    $guestID = $_POST['guestID'];
     $status = false;
     $date = date("Y-m-d");
     $transacID = rand(0,99999999) * 999999;
-    
-   $sql_create = "INSERT INTO `Transactions` (`transactionID`,`roomID`,`employeeID`,`telGuest`,`check_in`,`status`)
+
+    $sql_guest = "SELECT * FROM `Guest` WHERE `id` LIKE '".$guestID."' ";
+    $sql_check = $conn->query($sql_guest) or die($conn->error);
+
+    if($sql_check->num_rows){
+         $sql_create = "INSERT INTO `Transactions` (`transactionID`,`roomID`,`employeeID`,`guestID`,`check_in`,`status`)
                         VALUES(
                             '".$transacID."',
                             '".$room_id."',
                             '".$empID."',
-                            '".$tel."',
+                            '".$guestID."',
                             '".$date."',
                             '".$status."')";
         $update = "UPDATE `Room` SET `status` = '1' WHERE `Room`.`roomID` = '".$room_id."';";
@@ -27,6 +31,12 @@
         }else{
             echo json_encode(["status"=>false,"message"=>"Create Room Fail!"]);
         }
+
+    }else{
+        echo json_encode(["status"=>false,"message"=>"ไม่พบ GuestID!"]);
+    }
+
+   
 
     header('Refresh:0; url= ../../index.php');
 

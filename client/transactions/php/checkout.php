@@ -33,7 +33,7 @@
             $checkout = "UPDATE `Transactions` SET `check_out` = '".$date."' WHERE `Transactions`.`transactionID` = '".$transactionID."';";
             
             $result_check_out = $conn->query($checkout) or die($conn->error);
-            $sql_room = "UPDATE `Room` SET `status` = '1' WHERE `Room`.`roomID` = '".$roomID."';";
+            $sql_room = "UPDATE `Room` SET `status` = '0' WHERE `Room`.`roomID` = '".$roomID."';";
             $result = $conn->query($sql_room) or die($conn->error);
 
             $payment = "INSERT INTO `Payment` (`paymentID`, `transactionID`, `room_price`, `total_bill`, `status`) 

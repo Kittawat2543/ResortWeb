@@ -2,7 +2,7 @@
  include_once('../../connect.php');
  require_once('../authen.php');
 
- $sql = "SELECT * FROM Room";
+ $sql = "SELECT * FROM Guest ORDER BY `create_at`";
  $result = mysqli_query($conn,$sql);
  
 
@@ -55,47 +55,38 @@
         <div class="container-fluid mb-5">
             <div class="card text-left">
                 <div class="card-body">
-                    <h1 style="text-align:ceter">ห้องพัก</h1>
+                    <h2 style="text-align:ceter">Guest Management</h2>
 
                     <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog"
                         aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header text-center">
-                                    <h4 class="modal-title w-100 font-weight-bold">Add room</h4>
+                                    <h4 class="modal-title w-100 font-weight-bold">Add Guest</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     </button>
                                 </div>
                                 <div class="modal-body mx-3">
 
-                                    <form class="text-center" method="POST" action="php/createRoom.php" id="form">
-                                        <div class="md-form mb-5">
-                                            <input type="text" id="room_number" name="room_number" class="form-control validate" required>
-                                            <label data-error="wrong" data-success="right"
-                                                for="room_number">หมายเลขห้อง</label>
-                                        </div>
-
-                                        <select class="mdb-select md-form" name="gender" id="gender">
-                                            <option value="" disabled selected>ประเภทของห้อง</option>
-                                            <option value="Twin bed">Twin bed</option>
-                                            <option value="One bed">One bed</option>
-                                        </select>
+                                    <form class="text-center" method="POST" action="php/addGuest.php" id="form">
+                                    
 
                                         <div class="md-form mb-5">
-                                            <input type="text" id="person" name="person" class="form-control validate" required>
+                                            <input type="text" id="name" name="name" class="form-control validate" required>
                                             <label data-error="wrong" data-success="right"
-                                                for="person">จำนวนผู้เข้าพัก</label>
+                                                for="name">Name</label>
                                         </div>
 
                                         <div class="md-form mb-5">
-                                            <input type="number" id="price" name="price" class=" form-control validate" required>
-                                            <label data-error="wrong" data-success="success" for="form34">ราคา</label>
+                                            <input type="text" id="tel" name="tel" class="form-control validate" required>
+                                            <label data-error="wrong" data-success="right"
+                                                for="tel">Tel</label>
                                         </div>
 
                                 </div>
                                 
                                 <div class="modal-footer d-flex justify-content-center">
-                                    <button class="btn btn-unique" type="submit">Create room <i
+                                    <button class="btn btn-unique" type="submit">Submit <i
                                             class="fas fa-paper-plane-o ml-1"></i></button>
                                 </div>
 
@@ -107,17 +98,16 @@
 
                     <div class="text-center">
                         <a href="" class="btn btn-success btn-rounded btn-sm mb-4" data-toggle="modal"
-                            data-target="#modalContactForm">Add room</a>
+                            data-target="#modalContactForm">Add Guest</a>
                     </div>
 
                     <table class="table align-middle">
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Room Type</th>
-                                <th scope="col">Person</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Tel</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -126,15 +116,13 @@
                             <?php while ($data = mysqli_fetch_array($result)) {
                                     ?>
                                 <tr>
-                                    <td><?php echo $data['roomID']; ?></td>
-                                    <td><?php echo $data['roomType']; ?></td>
-                                    <td><?php echo $data['person']; ?></td>
-                                    <td><?php echo $data['price']; ?></td>
-                                    <td><?php echo $data['status'] == 0 ? 'ว่าง' : 'ไม่ว่าง'; ?></td>
-                                    <!-- <td> <button type="button" class="btn btn-danger btn-sm px-3">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </td> -->
+                                    <td><?php echo $data['id']; ?></td>
+                                    <td><?php echo $data['name']; ?></td>
+                                    <td><?php echo $data['tel']; ?></td>
+                                    <td> <a href="edit.php?id=<?php echo $data['id'];?>" type="button" class="btn btn-warning btn-sm px-3">
+                                           Edit
+                                        </a>
+                                    </td>
                                 </tr>
                                 <?php }?>
                         </tbody>
@@ -181,7 +169,7 @@
 
             $.ajax({
                 type:'POST',
-                url:'php/createRoom.php',
+                url:'php/addGuest.php',
                 data:data,
                 dataType:'JSON',
                 success:function (data){

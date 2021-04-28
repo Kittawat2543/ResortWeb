@@ -96,10 +96,12 @@ th {
                             <label for="salary">Salaly</label>
                         </div>
 
-                        <div class="md-form">
-                            <input type="text" id="gender" name="gender" class="form-control" required>
-                            <label for="gender">gender</label>
-                        </div>
+                        <select class="mdb-select md-form" name="gender" id="gender">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="M">Male</option>
+                            <option value="G">Femel</option>
+                            <option value="Other">Other</option>
+                        </select>
 
                         <div class="md-form">
                             <input type="text" id="job_position" name="job_position" class="form-control" required>
@@ -138,6 +140,11 @@ th {
     </script>
     <script src="../../assets/js/block-console.js"></script>
     <script src="../../assets/js/register.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('.mdb-select').materialSelect();
+    })
+    </script>
 </body>
 
 </html>

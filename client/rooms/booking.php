@@ -10,7 +10,7 @@ if (!$_GET['id']){
   include_once('../../connect.php');
  require_once('../authen.php');
 
- $sql = "SELECT * FROM Room WHERE status = 0";
+ $sql = "SELECT * FROM Room WHERE status = 0 ORDER BY `roomID` ASC";
  $result = mysqli_query($conn,$sql);
 
 
@@ -94,9 +94,9 @@ if (!$_GET['id']){
 
                             <!-- Password -->
                             <div class="md-form">
-                                <input type="text" id="tel" name="tel" id="materialLoginFormPassword"
+                                <input type="text" id="guestID" name="guestID" id="materialLoginFormPassword"
                                     class="form-control">
-                                <label for="tel">เบอร์โทรศัพท์ผู้จอง</label>
+                                <label for="guestID">Guest ID</label>
                             </div>
 
 

@@ -89,7 +89,7 @@ require_once('../authen.php');
                                 <th scope="col">Payment ID</th>
                                 <th scope="col">transactionID</th>
                                 <th scope="col">RoomID</th>
-                                <th scope="col">telGuest</th>
+                                <th scope="col">GuestID</th>
                                 <th scope="col">Total Bill</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
@@ -100,12 +100,13 @@ require_once('../authen.php');
 
                             </tr>
                             <?php while ($data = mysqli_fetch_array($result)) {
+                                // print_r($data);
                                     ?>
                             <tr>
                                 <td><?php echo $data[0]; ?></td>
                                 <td><?php echo $data['transactionID']; ?></td>
                                 <td><?php echo $data['roomID']; ?></td>
-                                <td><?php echo $data['telGuest']; ?></td>
+                                <td><?php echo $data['guestID']; ?></td>
                                 <td><?php echo $data['total_bill']; ?></td>
 
                                 <td><?php echo $data['status'] == 0 ? 'ยังไม่ชำระเงิน' : 'ชำระเงินเสร็จสิ้น'; ?></td>

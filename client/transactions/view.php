@@ -6,7 +6,7 @@ require_once('../authen.php');
 include_once('../../connect.php');
 require_once('../authen.php');
 
-$sql = "SELECT * FROM `Transactions` INNER JOIN `Guest` ON Transactions.telGuest = Guest.tel INNER JOIN Employee ON Transactions.employeeID = Employee.employeeID";
+$sql = "SELECT * FROM `Transactions` INNER JOIN `Guest` ON Transactions.guestID = Guest.id INNER JOIN Employee ON Transactions.employeeID = Employee.employeeID";
 $result = mysqli_query($conn,$sql);
 
 
@@ -19,7 +19,7 @@ $result = mysqli_query($conn,$sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transaction</title>
+    <title>Receipt</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -91,8 +91,7 @@ $result = mysqli_query($conn,$sql);
                             </div>
 
                             <div class="md-form mb-4">
-                                <input type="date" id="date_checkout" name="date_checkout"
-                                    class="form-control validate">
+                                <input type="date" id="date_checkout" name="date_checkout" class="form-control validate">
                                 <label data-error="wrong" data-success="right" for="defaultForm-pass">Date</label>
                             </div>
 
@@ -111,15 +110,17 @@ $result = mysqli_query($conn,$sql);
                     <div class="card">
                         <div class="card-body">
                             <?php while ($data = mysqli_fetch_array($result)){
+                                // print_r($data);
                                 if($data[0] == $_GET['id']){?>
                             <p></p>
 
                             <h5>TransactionsID : <?php echo $data['transactionID']?></h5>
-                            <p>ชื่อผู้จอง : <?php echo $data['name']?></p>
-                            <p>เบอร์โทรศัพท์ผู้จอง : <?php echo $data['telGuest']?></p>
+                            <p>GuestID : <?php echo $data['guestID']?></p>
+                            <p>ชื่อผู้จอง : <?php echo $data[10]?></p>
+                            <p>เบอร์โทรศัพท์ผู้จอง : <?php echo $data[11]?></p>
                             <h4>ข้อมูลพนักงาน</h4>
-                            <p>พนักงาน : <?php echo $data[15]?></p>
-                            <p>ตำแหน่งงาน : <?php echo $data[20]?></p>
+                            <p>พนักงาน : <?php echo $data['name']?></p>
+                            <p>ตำแหน่งงาน : <?php echo $data['job_position']?></p>
                             <h4>ข้อมูลห้องที่จอง</h4>
                             <p>หมายเลขห้อง : <?php echo $data['roomID']?></p>
                             <p>CheckIN : <?php echo $data['check_in']?></p>
@@ -130,9 +131,8 @@ $result = mysqli_query($conn,$sql);
 
 
                             <div class=" text-center">
-                                <a href=""
-                                    class="btn btn-danger btn-rounded mb-4 <?php echo $data['check_out'] == '0000-00-00 00:00:00' ? ' ':'disabled';?>"
-                                    data-toggle="modal" data-target="#modalLoginForm">Check Out</a>
+                                <a href="" class="btn btn-danger btn-rounded mb-4 <?php echo $data['check_out'] == '0000-00-00 00:00:00' ? ' ':'disabled';?>" data-toggle="modal"
+                                    data-target="#modalLoginForm">Check Out</a>
                             </div>
                             <?php }
                         }?>
@@ -170,26 +170,26 @@ $result = mysqli_query($conn,$sql);
 
     <script>
     $(document).ready(function() {
-        $("#form").submit(function(evennt) {
+     $("#form").submit(function (evennt){
             event.preventDefault();
 
             var data = $(this).serialize();
             console.log(data)
 
             $.ajax({
-                type: 'POST',
-                url: 'php/checkout.php',
-                data: data,
-                dataType: 'JSON',
-                success: function(data) {
-
-                    if (data.status) {
-                        Swal.fire('Success!', data.message, 'success').then(() => {
+                type:'POST',
+                url:'php/checkout.php',
+                data:data,
+                dataType:'JSON',
+                success:function (data){
+                    
+                    if(data.status){
+                        Swal.fire('Success!',data.message,'success').then(()=>{
                             window.location.href = 'index.php';
                         })
-                    } else {
-                        Swal.fire('Fail!', data.message, 'error').then(() => {
-                            window.location.href = 'index.php';
+                    }else{
+                        Swal.fire('Fail!',data.message,'error').then(()=>{
+                             window.location.href = 'index.php';
                         })
                     }
                 }

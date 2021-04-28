@@ -4,7 +4,7 @@
 
 
  $id = $_GET['id'];
-$sql = "SELECT * FROM Employee WHERE employeeID = '".$id."'";
+$sql = "SELECT * FROM Guest WHERE id = '".$id."'";
 $result_trans = $conn->query($sql) or die($conn->error);
 $data = mysqli_fetch_array($result_trans);
 
@@ -59,36 +59,23 @@ $data = mysqli_fetch_array($result_trans);
                                 <h5 class="text-left">แก้ไขข้อมูล</h5>
                                 <hr>
                                 <!-- Email -->
+
+                               <input type="hidden" id="id" name="id" 
+                                        value="<?php echo $id;?>" requried>
+
+
                                 <div class="md-form">
                                     <input type="text" id="name" name="name" class="form-control"
                                         value="<?php echo $data['name'];?>" requried>
                                     <label for="name">Name</label>
                                 </div>
-                                <input type="hidden" id="id" name="id" class="form-control"
-                                        value="<?php echo $id;?>" requried>
 
                                 <div class="md-form">
                                     <input type="text" id="tel" name="tel" class="form-control"
                                         value="<?php echo $data['tel'];?>" requried>
                                     <label for="tel">Tel</label>
                                 </div>
-                                <div class="md-form">
-                                    <input type="number" id="salary" name="salary" class="form-control"
-                                        value="<?php echo $data['salary'];?>">
-                                    <label for="salary">Salary</label>
-                                </div>
-
-                                <select class="mdb-select md-form" name="gender" id="gender">
-                                    <option value="" disabled selected>Choose your option</option>
-                                    <option value="M">Male</option>
-                                    <option value="G">Femel</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                                <div class="md-form">
-                                    <input type="text" id="job_position" name="job_position" class="form-control"
-                                        value="<?php echo $data['job_position'];?>">
-                                    <label for="job_position">Job position</label>
-                                </div>
+                                
                                 <br>
                                 <br>
 
@@ -133,7 +120,7 @@ $data = mysqli_fetch_array($result_trans);
             console.log(form_data);
             $.ajax({
                 type: 'POST',
-                url: 'php/edit.php',
+                url: 'php/editGuest.php',
                 data: form_data,
                 dataType: 'json',
                 success: function(data) {

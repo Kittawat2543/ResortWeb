@@ -83,7 +83,7 @@ require_once('../authen.php');
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Tel guest</th>
+                                            <th scope="col">GuestID</th>
                                             <th scope="col">RoomID</th>
                                             <th scope="col">Transaction Date</th>
                                             <th scope="col">Action</th>
@@ -94,7 +94,7 @@ require_once('../authen.php');
                                     ?>
                                         <tr>
                                             <td><?php echo $data['transactionID']; ?></td>
-                                            <td><?php echo $data['telGuest']; ?></td>
+                                            <td><?php echo $data['guestID']; ?></td>
                                             <td><?php echo $data['roomID']; ?></td>
                                             <td><?php echo $data['transaction_date']; ?></td>
                                             <td> <a href="view.php?id=<?php echo $data['transactionID']; ?>"

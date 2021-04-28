@@ -23,6 +23,9 @@
                     <li><a class="collapsible-header waves-effect arrow-r" href="../rooms/index.php"><i
                                 class="fad fa-box-full" style="font-size:25px; margin-right:20px;"></i> Booking Room</a>
                     </li>
+                    <li><a class="collapsible-header waves-effect arrow-r" href="../guest/index.php"><i
+                                class="fad fa-box-full" style="font-size:25px; margin-right:20px;"></i> Guest Management</a>
+                    </li>
 
 
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-file-invoice"

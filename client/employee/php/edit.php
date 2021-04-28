@@ -1,22 +1,22 @@
 <?php
     include_once('../../../connect.php');
     header("Content-type: application/json; charset=utf-8"); 
-
-    $user_id = $_SESSION['UserID'];
-
+   
+    $user_id = $_POST['id'];
+    
     $name = $_POST['name'];
-    $phone = $_POST['phone'];
-    $line = $_POST['line_notify'];
-
-    $shop_name = $_POST['shopname'];
-    $address = $_POST['address'];
-
-        $sql = "UPDATE `members` SET 
+    $tel = $_POST['tel'];
+    $gender = $_POST['gender'];
+    $job_position = $_POST['job_position'];
+    $salary = $_POST['salary'];
+    
+    // print_r($_POST);
+        $sql = "UPDATE `Employee` SET 
                 `name`= '".$name."',
-                `phone`= '".$phone."',
-                `line_notify`= '".$line."',
-                `shop_name`= '".$shop_name."',
-                `address`= '".$address."' WHERE `user_id` = '".$user_id."'";
+                `tel`= '".$tel."',
+                `salary`= '".$salary."',
+                `gender`= '".$gender."',
+                `job_position`= '".$job_position."' WHERE `employeeID` = '".$user_id."'";
         $query = $conn->query($sql) or die($conn->error);
 
         
