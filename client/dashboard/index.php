@@ -70,8 +70,9 @@
 
                                     <form class="text-center" method="POST" action="php/createRoom.php" id="form">
                                         <div class="md-form mb-5">
-                                            <input type="text" id="room_number" name="room_number" class="form-control validate" required>
-                                            <label data-error="wrong" data-success="right"
+                                            <input type="text" id="room_number" name="room_number"
+                                                class="form-control validate" required>
+                                            <label data-error="wrong" data-success=""
                                                 for="room_number">หมายเลขห้อง</label>
                                         </div>
 
@@ -82,18 +83,20 @@
                                         </select>
 
                                         <div class="md-form mb-5">
-                                            <input type="text" id="person" name="person" class="form-control validate" required>
-                                            <label data-error="wrong" data-success="right"
+                                            <input type="text" id="person" name="person" class="form-control validate"
+                                                required>
+                                            <label data-error="wrong" data-success=""
                                                 for="person">จำนวนผู้เข้าพัก</label>
                                         </div>
 
                                         <div class="md-form mb-5">
-                                            <input type="number" id="price" name="price" class=" form-control validate" required>
-                                            <label data-error="wrong" data-success="success" for="form34">ราคา</label>
+                                            <input type="number" id="price" name="price" class=" form-control validate"
+                                                required>
+                                            <label data-error="wrong" data-success="" for="form34">ราคา</label>
                                         </div>
 
                                 </div>
-                                
+
                                 <div class="modal-footer d-flex justify-content-center">
                                     <button class="btn btn-unique" type="submit">Create room <i
                                             class="fas fa-paper-plane-o ml-1"></i></button>
@@ -121,22 +124,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                        
+
                             </tr>
                             <?php while ($data = mysqli_fetch_array($result)) {
                                     ?>
-                                <tr>
-                                    <td><?php echo $data['roomID']; ?></td>
-                                    <td><?php echo $data['roomType']; ?></td>
-                                    <td><?php echo $data['person']; ?></td>
-                                    <td><?php echo $data['price']; ?></td>
-                                    <td><?php echo $data['status'] == 0 ? 'ว่าง' : 'ไม่ว่าง'; ?></td>
-                                    <!-- <td> <button type="button" class="btn btn-danger btn-sm px-3">
+                            <tr>
+                                <td><?php echo $data['roomID']; ?></td>
+                                <td><?php echo $data['roomType']; ?></td>
+                                <td><?php echo $data['person']; ?></td>
+                                <td><?php echo $data['price']; ?></td>
+                                <td><?php echo $data['status'] == 0 ? 'ว่าง' : 'ไม่ว่าง'; ?></td>
+                                <!-- <td> <button type="button" class="btn btn-danger btn-sm px-3">
                                             <i class="fas fa-times"></i>
                                         </button>
                                     </td> -->
-                                </tr>
-                                <?php }?>
+                            </tr>
+                            <?php }?>
                         </tbody>
                     </table>
 
@@ -171,29 +174,29 @@
     <script src="../../assets/js/block-console.js"></script>
 
     <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
 
         $('.mdb-select').materialSelect();
-        $("#form").submit(function (evennt){
+        $("#form").submit(function(evennt) {
             event.preventDefault();
 
             var data = $(this).serialize();
             console.log(data)
 
             $.ajax({
-                type:'POST',
-                url:'php/createRoom.php',
-                data:data,
-                dataType:'JSON',
-                success:function (data){
-                    
-                    if(data.status){
-                        Swal.fire('Success!',data.message,'success').then(()=>{
+                type: 'POST',
+                url: 'php/createRoom.php',
+                data: data,
+                dataType: 'JSON',
+                success: function(data) {
+
+                    if (data.status) {
+                        Swal.fire('Success!', data.message, 'success').then(() => {
                             window.location.href = 'index.php';
                         })
-                    }else{
-                        Swal.fire('Fail!',data.message,'error').then(()=>{
-                             window.location.href = 'index.php';
+                    } else {
+                        Swal.fire('Fail!', data.message, 'error').then(() => {
+                            window.location.href = 'index.php';
                         })
                     }
                 }

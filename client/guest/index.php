@@ -13,7 +13,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index | Dashboard</title>
+    <title>Guest Management</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -69,22 +69,22 @@
                                 <div class="modal-body mx-3">
 
                                     <form class="text-center" method="POST" action="php/addGuest.php" id="form">
-                                    
+
 
                                         <div class="md-form mb-5">
-                                            <input type="text" id="name" name="name" class="form-control validate" required>
-                                            <label data-error="wrong" data-success="right"
-                                                for="name">Name</label>
+                                            <input type="text" id="name" name="name" class="form-control validate"
+                                                required>
+                                            <label data-error="wrong" data-success="" for="name">Name</label>
                                         </div>
 
                                         <div class="md-form mb-5">
-                                            <input type="text" id="tel" name="tel" class="form-control validate" required>
-                                            <label data-error="wrong" data-success="right"
-                                                for="tel">Tel</label>
+                                            <input type="text" id="tel" name="tel" class="form-control validate"
+                                                required>
+                                            <label data-error="wrong" data-success="" for="tel">Tel</label>
                                         </div>
 
                                 </div>
-                                
+
                                 <div class="modal-footer d-flex justify-content-center">
                                     <button class="btn btn-unique" type="submit">Submit <i
                                             class="fas fa-paper-plane-o ml-1"></i></button>
@@ -111,20 +111,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                        
+
                             </tr>
                             <?php while ($data = mysqli_fetch_array($result)) {
                                     ?>
-                                <tr>
-                                    <td><?php echo $data['id']; ?></td>
-                                    <td><?php echo $data['name']; ?></td>
-                                    <td><?php echo $data['tel']; ?></td>
-                                    <td> <a href="edit.php?id=<?php echo $data['id'];?>" type="button" class="btn btn-warning btn-sm px-3">
-                                           Edit
-                                        </a>
-                                    </td>
-                                </tr>
-                                <?php }?>
+                            <tr>
+                                <td><?php echo $data['id']; ?></td>
+                                <td><?php echo $data['name']; ?></td>
+                                <td><?php echo $data['tel']; ?></td>
+                                <td> <a href="edit.php?id=<?php echo $data['id'];?>" type="button"
+                                        class="btn btn-warning btn-sm px-3">
+                                        Edit
+                                    </a>
+                                </td>
+                            </tr>
+                            <?php }?>
                         </tbody>
                     </table>
 
@@ -159,28 +160,28 @@
     <script src="../../assets/js/block-console.js"></script>
 
     <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
 
-        $("#form").submit(function (evennt){
+        $("#form").submit(function(evennt) {
             event.preventDefault();
 
             var data = $(this).serialize();
             console.log(data)
 
             $.ajax({
-                type:'POST',
-                url:'php/addGuest.php',
-                data:data,
-                dataType:'JSON',
-                success:function (data){
-                    
-                    if(data.status){
-                        Swal.fire('Success!',data.message,'success').then(()=>{
+                type: 'POST',
+                url: 'php/addGuest.php',
+                data: data,
+                dataType: 'JSON',
+                success: function(data) {
+
+                    if (data.status) {
+                        Swal.fire('Success!', data.message, 'success').then(() => {
                             window.location.href = 'index.php';
                         })
-                    }else{
-                        Swal.fire('Fail!',data.message,'error').then(()=>{
-                             window.location.href = 'index.php';
+                    } else {
+                        Swal.fire('Fail!', data.message, 'error').then(() => {
+                            window.location.href = 'index.php';
                         })
                     }
                 }

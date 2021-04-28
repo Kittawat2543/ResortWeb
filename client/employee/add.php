@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Management</title>
+    <title>Add employee</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -97,7 +97,7 @@ th {
                         </div>
 
                         <select class="mdb-select md-form" name="gender" id="gender">
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="" disabled selected>Choose your gender</option>
                             <option value="M">Male</option>
                             <option value="G">Femel</option>
                             <option value="Other">Other</option>
@@ -141,7 +141,7 @@ th {
     <script src="../../assets/js/block-console.js"></script>
     <script src="../../assets/js/register.js"></script>
     <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $('.mdb-select').materialSelect();
     })
     </script>

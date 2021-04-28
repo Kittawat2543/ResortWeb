@@ -15,7 +15,7 @@ $data = mysqli_fetch_array($result_trans);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit</title>
+    <title>Edit employee</title>
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/MDB-Pro/css/mdb.min.css">
     <link rel="stylesheet" href="../../node_modules/FontAwesomePro/css/all.css">
@@ -56,7 +56,7 @@ $data = mysqli_fetch_array($result_trans);
 
                             <!-- Form -->
                             <form action="" id="form-edit">
-                                <h5 class="text-left">แก้ไขข้อมูล</h5>
+                                <h5 class="text-left">Edit infomation</h5>
                                 <hr>
                                 <!-- Email -->
                                 <div class="md-form">
@@ -64,8 +64,8 @@ $data = mysqli_fetch_array($result_trans);
                                         value="<?php echo $data['name'];?>" requried>
                                     <label for="name">Name</label>
                                 </div>
-                                <input type="hidden" id="id" name="id" class="form-control"
-                                        value="<?php echo $id;?>" requried>
+                                <input type="hidden" id="id" name="id" class="form-control" value="<?php echo $id;?>"
+                                    requried>
 
                                 <div class="md-form">
                                     <input type="text" id="tel" name="tel" class="form-control"

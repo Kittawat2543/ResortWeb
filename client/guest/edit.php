@@ -56,12 +56,11 @@ $data = mysqli_fetch_array($result_trans);
 
                             <!-- Form -->
                             <form action="" id="form-edit">
-                                <h5 class="text-left">แก้ไขข้อมูล</h5>
+                                <h5 class="text-left">Edit infomation</h5>
                                 <hr>
                                 <!-- Email -->
 
-                               <input type="hidden" id="id" name="id" 
-                                        value="<?php echo $id;?>" requried>
+                                <input type="hidden" id="id" name="id" value="<?php echo $id;?>" requried>
 
 
                                 <div class="md-form">
@@ -75,7 +74,7 @@ $data = mysqli_fetch_array($result_trans);
                                         value="<?php echo $data['tel'];?>" requried>
                                     <label for="tel">Tel</label>
                                 </div>
-                                
+
                                 <br>
                                 <br>
 

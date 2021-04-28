@@ -18,18 +18,21 @@
             <li>
                 <ul class="collapsible collapsible-accordion">
                     <li><a class="waves-effect" href="../dashboard/index.php"> <i class="fad fa-cash-register"
-                                style="margin-right: 30px; font-size:25px;"></i>Dashboard</a>
+                                style="margin-right: 25px; font-size:25px;"></i>Dashboard</a>
                     </li>
                     <li><a class="collapsible-header waves-effect arrow-r" href="../rooms/index.php"><i
-                                class="fad fa-box-full" style="font-size:25px; margin-right:20px;"></i> Booking Room</a>
+                                class="fad fa-box-full" style="font-size:25px; margin-right:13px;"></i> Booking Room</a>
                     </li>
                     <li><a class="collapsible-header waves-effect arrow-r" href="../guest/index.php"><i
-                                class="fad fa-box-full" style="font-size:25px; margin-right:20px;"></i> Guest Management</a>
+                                class="fad fa-user-alt " style="font-size:25px; margin-right:20px;"></i> Manage
+                            Guests
+                        </a>
                     </li>
 
 
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-file-invoice"
-                                style="margin-right: 30px; font-size:30px; padding-right:-4px;"></i> Receipt
+                    <li><a class="collapsible-header waves-effect arrow-r">
+                            <i class="fad fa-file-invoice"
+                                style="margin-right: 27px; font-size:25px; padding-right:-4px;"></i> Receipt
                             <i class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul class="list-unstyled">
@@ -43,7 +46,8 @@
 
 
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fad fa-user-alt mr-3"
-                                style="font-size:25px; margin-right:20px; padding-right:5px;"></i> Management
+                                style="font-size:25px; margin-right:20px; padding-right:5px;"></i> Manage
+                            Employees
                             <i class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
                             <ul class="list-unstyled">
