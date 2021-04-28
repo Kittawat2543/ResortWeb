@@ -75,7 +75,7 @@
                                                 for="room_number">หมายเลขห้อง</label>
                                         </div>
 
-                                        <select class="mdb-select md-form" name="gender" id="gender">
+                                        <select class="mdb-select md-form" name="type" id="type">
                                             <option value="" disabled selected>ประเภทของห้อง</option>
                                             <option value="Twin bed">Twin bed</option>
                                             <option value="One bed">One bed</option>
@@ -173,6 +173,7 @@
     <script>
     $(document).ready(function(){
 
+        $('.mdb-select').materialSelect();
         $("#form").submit(function (evennt){
             event.preventDefault();
 
